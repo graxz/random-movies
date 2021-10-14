@@ -108,7 +108,14 @@ button:hover {
 }
 
 #message-1, #message-2 {
-    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: medium;
+}
+
+#message-1 {
+    padding-top: 25px;
 }
 
 @media only screen and (max-width: 399px) {
@@ -116,6 +123,10 @@ button:hover {
         padding-inline: 90px;
         margin-top: 5px;
         margin-left: 0px;
+    }
+
+    #message-1, #message-2 {
+        font-size: small;
     }
 }
 

@@ -25,12 +25,11 @@
             <option value="drama">Drama/Romance</option>
             <option value="ficcao">Ficção Científica</option>
         </select>
-        <select id="comida">
+        <select id="tipica">
             <option value="fit">Fitness</option>
             <option value="fastfood" selected>Fast food</option>
             <option value="doce">Doce</option>
-            <option value="salgado">Salgado</option>
-            <option value="massa">Massa</option>
+            <option value="comida">Comida</option>
             <option value="asiatica">Asiatica</option>
         </select>
         <button id="button">Search</button>
@@ -270,6 +269,144 @@
     "Upgrade"
   ]
 }
+    const foods = {
+        "asiatica": [
+            "Pho",
+            "Banh Mi",
+            "Som Tam",
+            "Khao Soi",
+            "Pad Thai",
+            "Nasi Padang",
+            "Sate Padang",
+            "Bakso",
+            "Nasi Lemak",
+            "Assam Laksa",
+            "Sushi",
+            "Temaki",
+            "Poke",
+            "Yakisoba",
+            "Kimchi",
+            "Noodles"
+        ],
+        "comida": [
+            "Macarrão",
+            "Pizza",
+            "Tacos mexicanos",
+            "Lasanha",
+            "Panqueca",
+            "Strogonoff",
+            "Escondidinho",
+            "Risoto",
+            "Esfiha",
+            "Empada",
+            "Frango Frito",
+            "Batata frita",
+            "Coxinha"
+        ],
+        "doce": [
+            "Pipoca doce",
+            "Brigadeiro",
+            "Cheesecake",
+            "Sorvete",
+            "Cookie",
+            "Waffles",
+            "Brownie",
+            "Mouse",
+            "Cupcake",
+            "Bolo",
+            "Amendoim",
+            "Churros",
+            "Bolinho de chuva"
+        ],
+        "fastfood": [
+            "Pipoca",
+            "Cachorro-quente",
+            "McDonald´s",
+            "Baked Potato",
+            "Pizza Hut",
+            "Burger King",
+            "China In Box",
+            "Outback",
+            "Vivenda do Camarão",
+            "Spoleto",
+            "Habib´s",
+            "Giraffas",
+            "Casa do Pão de Queijo",
+            "Bob´s",
+            "Subway"
+        ],
+        "fit": [
+            "Palito de legumes",
+            "Pastelzinho de ricota",
+            "Dadinho de tapioca",
+            "Torradinha",
+            "Palito de pão",
+            "Cenoura surpresa",
+            "Pão de queijo",
+            "Quibe vegano",
+            "Minipizza de berinjela",
+            "Chips de batata-doce",
+            "Palitos de abobrinha",
+            "Espetinho de frutas",
+            "Biscoito integral",
+            "Chips de abobrinha"
+        ]
+    }
+
+    function getFood(tipica) {
+    let foodArrLength = 0
+
+    switch (tipica) {
+        case 'asiatica':
+        foodArrLength = foods.asiatica.length
+        break;
+        case 'massa':
+        foodArrLength = foods.massa.length
+        break;
+        case 'salgado':
+        foodArrLength = foods.salgado.length
+        break;
+        case 'doce':
+        foodArrLength = foods.doce.length
+        break;
+        case 'fastfood':
+        foodArrLength = foods.fastfood.length
+        break;
+        case 'fit':
+        foodArrLength = foods.fit.length
+        break;
+        default:
+        break;
+    }
+
+    const index = Math.floor(Math.random() * foodArrLength)
+    let foodFinal = ''
+
+    switch (tipica) {
+        case 'asiatica':
+        foodFinal = foods.asiatica[index]
+        break;
+        case 'massa':
+        foodFinal = foods.massa[index]
+        break;
+        case 'salgado':
+        foodFinal = foods.salgado[index]
+        break;
+        case 'doce':
+        foodFinal = foods.doce[index]
+        break;
+        case 'fastfood':
+        foodFinal = foods.fastfood[index]
+        break;
+        case 'fit':
+        foodFinal = foods.fit[index]
+        break;
+        default:
+        break;
+    }
+
+    return foodFinal
+}
 
     function getMovie(genero) {
     let moviesArrLength = 0
@@ -336,9 +473,12 @@
         e.preventDefault()
 
         const genero = $("#genero").val()
+        const tipica = $("#tipica").val()
         const movie = getMovie(genero)
+        const food = getFood(tipica)
 
-        return document.querySelector('#message-1').innerHTML = `O Filme de hoje é ${movie}`
+        document.querySelector('#message-1').innerHTML = `O Filme de hoje é ${movie}`
+        document.querySelector('#message-2').innerHTML = `E a comida para acompanhar vai ser ${food}`
     })
 
     </script>

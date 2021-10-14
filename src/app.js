@@ -2,7 +2,6 @@ const path = require('path')
 const express = require('express')
 const app = express()
 const hbs = require('hbs')
-const getMovie = require('../src/utils/movies/getMovie')
 
 //Definindo pastas para a config do express
 const publicDirectoryPath = path.join(__dirname, '../public')
