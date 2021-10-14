@@ -1,3 +1,27 @@
+@font-face {
+    font-family: 'RandomFlix';
+    src: url('fonts/Graphique.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+  body {
+    background: radial-gradient(#fff, #aaa);
+    background-size: 100vw 100vh; 
+    overflow: hidden;
+    padding-top: 40vh;
+  }
+  
+  .txt {
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 12vmin;
+    font-weight: 700;
+    animation: netflix_style 3.5s infinite;
+    outline: none;
+    white-space: nowrap;
+  } 
+
 body {
     color: #333333;
     max-width: 650px;
@@ -17,7 +41,7 @@ body {
 
 footer {
     color: #888888;
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid #000000;
     margin-top: 16px;
     padding: 16px 0;
 }
@@ -28,22 +52,34 @@ header {
 }
 
 h1 {
-    font-size: 100px;
+    font-size: 16vh;
     margin-bottom: 16px;
-    font-family: 'Caveat', cursive;
+    color:#e90418;
+    text-shadow: 3px 4px 2px #000000;
+    font-family: RandomFlix;
+    margin-top: 0px;
 }
 
 header a {
     color: #888888;
-    border: 1px solid #eeeeee;
-    padding: 12px;
-    border-radius: 10px;
+    padding: 10px;
+    margin-inline: 60px;
     text-decoration: none;
 }
 
+select {
+    position: relative;
+    box-sizing: content-box;
+    width: 210px;
+    height: 1em;
+    padding: 14px;
+    background-color: rgba(255, 255, 255, 0.63);
+    border: none;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.205);
+}
+
 header a:hover{
-    background-color: #8888885e ;
-    color: #333333;
+    color: #0c0606;
 }
 
 .portrait {
@@ -57,11 +93,13 @@ input {
 }
 
 button {
-    border-radius: 5px;
+    border-radius: 1px;
+    margin-left: 26px;
     border: 1px solid #888888;
     background-color: #333333;
     color:#eeeeee;
-    padding: 5px;
+    padding: 12px;
+    padding-inline: 12px;
 }
 
 button:hover {
@@ -71,4 +109,29 @@ button:hover {
 
 #message-1, #message-2 {
     padding: 5px;
+}
+
+@media only screen and (max-width: 399px) {
+    button {
+        padding-inline: 90px;
+        margin-top: 5px;
+        margin-left: 0px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    h1 {
+        font-size: 10vh;
+    }
+
+    header a {
+        color: #888888;
+        padding: 10px;
+        margin-inline: 10px;
+        text-decoration: none;
+    }
+
+    select {
+        width: 100px;
+    }
 }
